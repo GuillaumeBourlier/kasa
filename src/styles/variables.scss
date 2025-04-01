@@ -1,0 +1,105 @@
+$police-principale: "Montserrat", sans-serif;
+
+$couleur-primaire: #ff6060;
+$couleur-secondaire: #f6f6f6;
+
+$couleur-pure: #ffffff;
+$couleur-pure-inversee: #000000;
+
+$couleur-fond: #ffffff;
+$couleur-fond-inverse: #000000;
+
+$couleur-texte: #000000;
+$couleur-texte-inverse: #ffffff;
+
+$couleur-selection: #2a6cd7;
+$couleur-danger: #d93936;
+$couleur-succes: #3ba55c;
+
+$barre-defilement: #f6f6f6;
+$barre-defilement-pouce: #ff6060;
+
+@mixin degrade {
+  background: rgb(255, 255, 255);
+  background: -moz-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(10, 10, 10, 0) 42%,
+    rgba(4, 4, 4, 0.4086426807050946) 100%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  background: -webkit-linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(10, 10, 10, 0) 42%,
+    rgba(4, 4, 4, 0.4086426807050946) 100%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  background: linear-gradient(
+    90deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(10, 10, 10, 0) 42%,
+    rgba(4, 4, 4, 0.4086426807050946) 100%,
+    rgba(0, 0, 0, 1) 100%
+  );
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#000000",GradientType=1);
+}
+
+$poids-police-noir: 900;
+$poids-police-gras: 700;
+$poids-police-moyen: 500;
+$poids-police-normal: 400;
+$poids-police-leger: 300;
+$poids-police-mince: 100;
+
+$taille-police-xxxl: 2.5rem; // 40px
+$taille-police-xxl: 1.875rem; // 30px
+$taille-police-xl: 1.75rem; // 28px
+$taille-police-l: 1.5rem; // 24px
+$taille-police-m: 1.125rem; // 18px
+$taille-police-s: 1rem; // 16px
+$taille-police-xs: 0.938rem; // 15px
+
+$espacement-xxl: 2.5rem;
+$espacement-xl: 2rem;
+$espacement-l: 1.5rem;
+$espacement-m: 1rem;
+$espacement-s: 0.5rem;
+$espacement-xs: 0.25;
+
+$point-rupture-xxl: 1440px;
+$point-rupture-xl: 1200px;
+$point-rupture-l: 992px;
+$point-rupture-m: 768px;
+$point-rupture-s: 576px;
+$point-rupture-xs: 375px;
+
+$largeur-xxl: 1440px;
+$largeur-xl: 1050px;
+$largeur-l: 992px;
+$largeur-m: 768px;
+$largeur-s: 576px;
+$largeur-xs: 375px;
+
+$z-index-modale: 1000;
+$z-index-menu-deroulant: 900;
+$z-index-barre-navigation: 800;
+$z-index-localisation: 700;
+
+$ombre-boite-xxl: 0px 4px 15px rgba(0, 0, 0, 0.35);
+$ombre-boite-xl: 0px 4px 15px rgba(0, 0, 0, 0.15);
+$ombre-boite-l: 0px 4px 10px rgba(0, 0, 0, 0.25);
+$ombre-boite-m: 0px 4px 4px rgba(0, 0, 0, 0.25);
+$ombre-boite-s: 0px 2px 4px rgba(0, 0, 0, 0.15);
+
+$rayon-bordure-xxxl: 30px;
+$rayon-bordure-xxl: 25px;
+$rayon-bordure-xl: 20px;
+$rayon-bordure-l: 15px;
+$rayon-bordure-m: 10px;
+$rayon-bordure-s: 2px;
+
+$duree-transition: 0.3s;
+$duree-transition-rapide: 0.1s;
+
+$taille-barre-defilement: 15px;
