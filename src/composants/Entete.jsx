@@ -1,7 +1,7 @@
 import { NavLink } from "react-router-dom";
 import "../styles/global.scss";
 
-function EnTête() {
+function EnTete() {
   return (
     <header className="en-tete">
       <NavLink to="/" className="logo">
@@ -13,11 +13,11 @@ function EnTête() {
           Accueil
         </NavLink>
         <NavLink to="/a-propos" className={({ isActive }) => (isActive ? "active" : "")}>
-          À Propos
+          A Propos
         </NavLink>
       </nav>
     </header>
   );
 }
 
-export default EnTête;
+export default EnTete;

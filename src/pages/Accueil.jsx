@@ -1,13 +1,26 @@
-import React from 'react';
-import Bannière from '../composants/Banniere'; 
+import React from "react";
+import Banniere from "../composants/Banniere";
+import Carte from "../composants/Carte";
+import logementsData from "../assets/logement.json";
 
 function Accueil() {
   return (
-    <div>
-      <Bannière
+    <div className="accueil">
+      <Banniere
+        image="./banniere/banniere.jpg"
         titre="Chez vous, partout et ailleurs"
-        image="/public/banniere/banniere.jpg"
       />
+      <div className="cartes">
+        {logementsData.map((logement) => (
+          <Carte
+            key={logement.id}
+            id={logement.id}
+            titre={logement.title}
+            image={logement.cover}
+            lien={`/logement/${logement.id}`}
+          />
+        ))}
+      </div>
     </div>
   );
 }

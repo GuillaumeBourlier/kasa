@@ -1,7 +1,128 @@
 @use "./variables.scss" as *;
 
-html {
-  scroll-behavior: smooth;
+/* --- Réinitialisation CSS --- */
+html,
+body,
+div,
+span,
+applet,
+object,
+iframe,
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+blockquote,
+pre,
+a,
+abbr,
+acronym,
+address,
+big,
+cite,
+code,
+del,
+dfn,
+em,
+img,
+ins,
+kbd,
+q,
+s,
+samp,
+small,
+strike,
+strong,
+sub,
+sup,
+tt,
+var,
+b,
+u,
+i,
+center,
+dl,
+dt,
+dd,
+ol,
+ul,
+li,
+fieldset,
+form,
+label,
+legend,
+table,
+caption,
+tbody,
+tfoot,
+thead,
+tr,
+th,
+td,
+article,
+aside,
+canvas,
+details,
+embed,
+figure,
+figcaption,
+pied-de-page,
+en-tete,
+hgroup,
+menu,
+nav,
+output,
+ruby,
+section,
+time,
+mark,
+audio,
+video {
+  margin: 0;
+  padding: 0;
+  border: 0;
+  font-size: 100%;
+  vertical-align: baseline;
+}
+
+article,
+aside,
+details,
+figcaption,
+figure,
+pied-de-page,
+en-tete,
+hgroup,
+menu,
+nav,
+section {
+  display: block;
+}
+
+body {
+  line-height: 1;
+}
+
+menu,
+ol,
+ul {
+  list-style: none;
+}
+
+blockquote,
+q {
+  quotes: none;
+}
+
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {
+  content: "";
+  content: none;
 }
 
 body {
@@ -9,32 +130,35 @@ body {
   font-family: $police-principale;
 }
 
-header,
-footer {
-  font-family: $police-principale;
+/* --- Styles globaux APP.JSX--- */
+.disposition {
+  margin: 0 auto;
+  max-width: $largeur-xxl;
+  width: 100%;
 }
 
-a {
-  color: inherit;
-  text-decoration: none;
+.contenu {
+  max-width: 1240px;
+  margin: 0 auto;
 
-  &:hover {
-    text-decoration: underline;
-  }
-
-  &:active {
-    color: inherit;
+  @media (max-width: 1240px) {
+    padding: 0 10px;
   }
 }
 
-/* --- Styles de l'entête --- */
+/* --- Styles de l'entête Entete.JSX --- */
+
 .en-tete {
   display: flex;
   justify-content: space-between;
   align-items: center;
   max-width: $largeur-xl;
-  margin: $espacement-l auto;
+  margin: $espacement-l auto; 
+  margin-bottom: $espacement-l;
   height: 68px;
+  padding: 0 20px;
+
+  
 
   @media (max-width: $point-rupture-xl) {
     padding: 0 $espacement-s;
@@ -63,13 +187,26 @@ a {
     font-size: $taille-police-l;
     font-weight: $poids-police-moyen;
     font-family: $police-principale;
+    color: $couleur-pure-inversee; 
+    text-decoration: none;
 
     @media (max-width: $point-rupture-xl) {
       font-size: $taille-police-s;
     }
 
+    &:hover {
+      color: $couleur-pure-inversee; 
+    }
+
+    &:active,
     &.active {
-      text-decoration: underline;
+      color: $couleur-pure-inversee; 
+      text-decoration: underline; 
+    }
+
+    &:focus {
+      color: $couleur-pure-inversee; 
+      outline: none; 
     }
   }
 
@@ -78,7 +215,7 @@ a {
   }
 }
 
-/* --- Styles pour la bannière --- */
+/* --- Styles pour la bannière Banniere?jsx --- */
 .banniere {
   display: flex;
   position: relative;
@@ -126,7 +263,58 @@ a {
   }
 }
 
-/* --- Styles pour le pied de page --- */
+/* --- Styles pour les cartes Carte.jsx --- */
+.carte {
+  border: 1px solid $couleur-secondaire;
+  background-color: $couleur-primaire;
+  border-radius: $rayon-bordure-m;
+  overflow: hidden;
+  text-align: center;
+  transition: transform 0.3s;
+
+  img {
+    width: 100%;
+    height: 200px;
+    object-fit: cover;
+  }
+
+  h2 {
+    margin: 0;
+    padding: 1rem;
+    font-size: 1.2rem;
+    color: $couleur-pure;
+  }
+
+  a {
+    text-decoration: none;
+    color: inherit;
+  }
+
+  &:hover {
+    transform: scale(1.05);
+  }
+}
+
+.cartes {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-radius: 25px;
+  background-color: $couleur-secondaire ;
+  gap: 30px;
+  padding: 20px;
+  max-width: $largeur-xxl;
+  margin: 0 auto;
+
+  @media (max-width: $point-rupture-l) {
+    grid-template-columns: repeat(2, 1fr);
+  }
+
+  @media (max-width: $point-rupture-m) {
+    grid-template-columns: 1fr;
+  }
+}
+
+/* --- Styles pour le pied de page Pieddepage.jsx--- */
 .pied-de-page {
   font-family: $police-principale;
   display: flex;
@@ -138,6 +326,8 @@ a {
   height: 209px;
   width: 100%;
   margin-top: 50px;
+  box-sizing: border-box;
+  
 
   &__logo {
     display: flex;
@@ -148,5 +338,89 @@ a {
   &__copyright {
     display: flex;
     color: $couleur-texte-inverse;
+  }
+}
+
+/* --- Styles pour la Page 404 Erreur.jsx --- */
+
+.erreur {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 100px;
+  min-height: 50vh;
+
+  @media (max-width: $point-rupture-m) {
+    gap: 50px;
+    min-height: 60vh;
+  }
+
+  &__titre {
+    font-size: 280px;
+    color: $couleur-primaire;
+
+    @media (max-width: $point-rupture-m) {
+      font-size: 8rem;
+    }
+  }
+
+  &__texte {
+    font-size: 36px;
+    color: $couleur-primaire;
+    text-align: center;
+    font-weight: $poids-police-moyen;
+
+    @media (max-width: $point-rupture-m) {
+      font-size: $taille-police-m;
+    }
+  }
+
+  &__lien {
+    text-align: center;
+    font-weight: $poids-police-normal;
+  }
+}
+
+/* --- Styles pour la Collpase --- */
+
+.collapse { 
+  border-radius: 8px;
+  margin-bottom: 20px;
+  overflow: hidden;
+
+  &__entete {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1rem;
+    background-color: $couleur-primaire;
+    cursor: pointer;
+
+    h2 {
+      margin: 0;
+      font-size: 1.2rem;
+      color : $couleur-pure;
+    }
+
+    .fleche {
+      transition: transform 0.3s;
+    }
+
+    .fleche.ouvert {
+      transform: rotate(180deg);
+    }
+  }
+
+  &__contenu {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
+    padding: 0 1rem;
+
+    &.visible {
+      max-height: 500px; // Ajustez selon le contenu
+      padding: 1rem;
+    }
   }
 }

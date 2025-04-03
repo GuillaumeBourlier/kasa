@@ -8,17 +8,19 @@ import Pieddepage from "./composants/PiedDePage";
 
 function App() {
   return (
-    <div>
-      <Entête />
-      <Routes>
-        {" "}
-        {}
-        <Route path="/" element={<Accueil />} />
-        <Route path="/a-propos" element={<Apropos />} />
-        <Route path="*" element={<Erreur />} />
-      </Routes>
+    <>
+      <div className="disposition">
+        <Entête />
+        <main className="contenu">
+          <Routes>
+            <Route path="/" element={<Accueil />} />
+            <Route path="/a-propos" element={<Apropos />} />
+            <Route path="*" element={<Erreur />} />
+          </Routes>
+        </main>
+      </div>
       <Pieddepage />
-    </div>
+    </>
   );
 }
 

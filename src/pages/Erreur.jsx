@@ -1,12 +1,14 @@
-import React from 'react';
+import { Link } from "react-router-dom";
+
 
 function Erreur() {
   return (
-    <div>
-      <h1>Erreur 404</h1>
-      <p>La page que vous recherchez n'existe pas.</p>
+    <div className="erreur">
+      <h1 className="erreur__titre">404</h1>
+      <h2 className="erreur__texte">Oups! La page que vous demandez n'existe pas.</h2>
+      <Link to="/" className="erreur__lien">Retourner sur la page d'accueil</Link>
     </div>
   );
-}   
+}
 
 export default Erreur;
