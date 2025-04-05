@@ -132,17 +132,21 @@ body {
 
 /* --- Styles globaux APP.JSX--- */
 .disposition {
-  margin: 0 auto;
-  max-width: $largeur-xxl;
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh;
   width: 100%;
 }
 
 .contenu {
+  flex: 1;
   max-width: 1240px;
   margin: 0 auto;
+  padding: 0 10px;
 
+  
   @media (max-width: 1240px) {
-    padding: 0 10px;
+    padding: 0;
   }
 }
 
@@ -152,13 +156,12 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  width: 100%;
   max-width: $largeur-xl;
-  margin: $espacement-l auto; 
+  margin: $espacement-l auto;
   margin-bottom: $espacement-l;
   height: 68px;
   padding: 0 20px;
-
-  
 
   @media (max-width: $point-rupture-xl) {
     padding: 0 $espacement-s;
@@ -187,7 +190,7 @@ body {
     font-size: $taille-police-l;
     font-weight: $poids-police-moyen;
     font-family: $police-principale;
-    color: $couleur-pure-inversee; 
+    color: $couleur-pure-inversee;
     text-decoration: none;
 
     @media (max-width: $point-rupture-xl) {
@@ -195,18 +198,18 @@ body {
     }
 
     &:hover {
-      color: $couleur-pure-inversee; 
+      color: $couleur-pure-inversee;
     }
 
     &:active,
     &.active {
-      color: $couleur-pure-inversee; 
-      text-decoration: underline; 
+      color: $couleur-pure-inversee;
+      text-decoration: underline;
     }
 
     &:focus {
-      color: $couleur-pure-inversee; 
-      outline: none; 
+      color: $couleur-pure-inversee;
+      outline: none;
     }
   }
 
@@ -265,24 +268,28 @@ body {
 
 /* --- Styles pour les cartes Carte.jsx --- */
 .carte {
-  border: 1px solid $couleur-secondaire;
-  background-color: $couleur-primaire;
+  position: relative; 
   border-radius: $rayon-bordure-m;
   overflow: hidden;
   text-align: center;
   transition: transform 0.3s;
+  display: flex;
+  flex-direction: column;
+  height: 100%; 
 
   img {
     width: 100%;
-    height: 200px;
+    height: 340px; 
     object-fit: cover;
   }
 
   h2 {
-    margin: 0;
-    padding: 1rem;
-    font-size: 1.2rem;
-    color: $couleur-pure;
+    position: absolute;
+    bottom: 10px; 
+    left: 10px; 
+    color: $couleur-secondaire; 
+    font-size: $taille-police-m;
+    padding: 5px 10px; 
   }
 
   a {
@@ -299,11 +306,12 @@ body {
   display: grid;
   grid-template-columns: repeat(3, 1fr);
   border-radius: 25px;
-  background-color: $couleur-secondaire ;
+  background-color: $couleur-secondaire;
   gap: 30px;
   padding: 20px;
   max-width: $largeur-xxl;
   margin: 0 auto;
+  
 
   @media (max-width: $point-rupture-l) {
     grid-template-columns: repeat(2, 1fr);
@@ -321,13 +329,11 @@ body {
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  bottom: 0;
   background: $couleur-fond-inverse;
-  height: 209px;
   width: 100%;
-  margin-top: 50px;
+  padding: 20px 0; /* Ajoutez un padding pour éviter que le contenu ne touche les bords */
   box-sizing: border-box;
-  
+  margin-top: auto; /* Assure que le pied de page est en bas */
 
   &__logo {
     display: flex;
@@ -384,27 +390,30 @@ body {
 
 /* --- Styles pour la Collpase --- */
 
-.collapse { 
+.collapse {
   border-radius: 8px;
   margin-bottom: 20px;
   overflow: hidden;
+  background-color: $couleur-secondaire;
 
   &__entete {
     display: flex;
     justify-content: space-between;
     align-items: center;
-    padding: 1rem;
     background-color: $couleur-primaire;
     cursor: pointer;
+    min-height: 52px;
+    width: 100%;
 
     h2 {
-      margin: 0;
+      margin: 10px;
       font-size: 1.2rem;
-      color : $couleur-pure;
+      color: $couleur-pure;
     }
 
     .fleche {
       transition: transform 0.3s;
+      margin: 10px;
     }
 
     .fleche.ouvert {
@@ -421,6 +430,201 @@ body {
     &.visible {
       max-height: 500px; // Ajustez selon le contenu
       padding: 1rem;
+    }
+  }
+}
+
+/* --- Styles pour la page Logement Logement.jsx --- */
+
+.logement {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 20px;
+
+  &__details {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    margin-top: 20px;
+  }
+
+  &__entete {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    flex-wrap: wrap;
+    gap: 10px;
+
+    h1 {
+      font-size: $taille-police-xxl;
+      margin-bottom: $espacement-s;
+      color: $couleur-primaire;
+    }
+
+    p {
+      font-size: $taille-police-s;
+      color: $couleur-pure-inversee;
+      margin-bottom: $espacement-s;
+    }
+
+    .tag {
+      background-color: $couleur-primaire;
+      border-radius: 25px;
+      padding: 6px 16px;
+      font-size: 14px;
+      font-weight: 600;
+      color: $couleur-pure;
+      margin-top: 10px;
+      margin-right: 10px;
+      display: inline-block;
+
+      @media (max-width: 769px) {
+        font-size: $taille-police-xs;
+      }
+    }
+  }
+
+  &__hote {
+    display: flex;
+    flex-direction: row;
+    justify-content: right;
+    align-items: center;
+    gap: 20px;
+    
+    @media (max-width: 769px) {
+      flex-direction: row-reverse;
+      justify-content: space-between;
+      gap: 15px;
+      margin-top: 15px;
+    }
+    
+    
+    .hote__info {
+      display: flex; 
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 10px; 
+
+      @media (max-width: 769px) {
+        font-size: $taille-police-xs;
+      }
+
+      p {
+        font-size: $taille-police-m;
+        font-weight: $poids-police-moyen;
+        color: $couleur-primaire;      
+      }
+
+      img {
+        width: 64px;
+        height: 64px;
+        border-radius: 50%;
+        @media (max-width: 769px) {
+            width: 40px;
+            height: 40px;
+      }
+    }
+    @media (max-width: 769px){
+      gap: 10px;
+  }
+    }
+
+    &__note {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+      margin-top: 10px;
+      @media (max-width: 769px) {
+        flex-direction: row;
+    }
+  }
+}
+
+  &__collapse {
+    display: flex;
+    justify-content: space-between;
+    gap: 20px;
+    width: 100%;
+    margin-top: 20px;
+    
+    > .collapse {
+      flex: 1;
+      width: 50%;
+    }
+    
+    @media (max-width: 768px) { 
+      flex-direction: column;
+      
+      > .collapse {
+        width: 100%;
+      }
+    }
+  }
+}
+.equipements__liste {
+  padding-left: 0;
+  list-style-type: none;
+  color: $couleur-texte;
+
+  li {
+    margin-bottom: 5px;
+    font-size: $taille-police-m;
+    color: $couleur-texte;
+  }
+}
+/* --- Styles pour le Diaporama --- */
+.diaporama {
+  position: relative;
+  width: 100%;
+  height: 400px;
+  overflow: hidden;
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+  }
+
+  &__controles {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transform: translateY(-50%);
+
+    .diaporama__fleche {
+      cursor: pointer;
+      width: 30px; /* Ajustez la taille selon vos besoins */
+      height: 30px;
+    }
+  }
+
+  &__compteur {
+    position: absolute;
+    bottom: -150px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
+  }
+}
+
+/* --- Styles pour les étoiles --- */
+.etoiles {
+  display: flex;
+  gap: 5px;
+
+  img {
+    width: 36px;
+    height: auto;
+    @media (max-width: 769px) {
+      width: 24px;
     }
   }
 }

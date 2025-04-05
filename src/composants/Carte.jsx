@@ -1,13 +1,13 @@
 import React from "react";
+import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
-
-function Carte({ titre, image, lien }) {
+function Carte({ id, titre, image }) {
   return (
     <div className="carte">
-      <a href={lien}>
+      <Link to={`/logement/${id}`}>
         <img src={image} alt={titre} />
         <h2>{titre}</h2>
-      </a>
+      </Link>
     </div>
   );
 }
@@ -15,7 +15,7 @@ function Carte({ titre, image, lien }) {
 Carte.propTypes = {
   titre: PropTypes.string.isRequired,
   image: PropTypes.string.isRequired,
-  lien: PropTypes.string.isRequired,
+  id: PropTypes.string.isRequired,
 };
 
 export default Carte;

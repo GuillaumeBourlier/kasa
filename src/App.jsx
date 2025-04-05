@@ -1,8 +1,9 @@
 import React from "react";
 import { Routes, Route } from "react-router-dom";
 import Accueil from "./pages/Accueil";
-import Apropos from "./pages/Apropos";
+import Apropos from "./pages/APropos";
 import Erreur from "./pages/Erreur";
+import Logement from "./pages/Logement";
 import Entête from "./composants/Entete";
 import Pieddepage from "./composants/PiedDePage";
 
@@ -15,11 +16,13 @@ function App() {
           <Routes>
             <Route path="/" element={<Accueil />} />
             <Route path="/a-propos" element={<Apropos />} />
+            <Route path="/logement/:id" element={<Logement />} />
+            <Route path="/erreur" element={<Erreur />} />
             <Route path="*" element={<Erreur />} />
           </Routes>
         </main>
-      </div>
       <Pieddepage />
+      </div>
     </>
   );
 }
