@@ -5,7 +5,7 @@ import Apropos from "./pages/APropos";
 import Erreur from "./pages/Erreur";
 import Logement from "./pages/Logement";
 import Entête from "./composants/Entete";
-import Pieddepage from "./composants/PiedDePage";
+import Pieddepage from "./composants/Pieddepage";
 
 function App() {
   return (
@@ -21,7 +21,7 @@ function App() {
             <Route path="*" element={<Erreur />} />
           </Routes>
         </main>
-      <Pieddepage />
+        <Pieddepage />
       </div>
     </>
   );

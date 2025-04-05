@@ -10,7 +10,11 @@ function Etoiles({ rating }) {
       {[...Array(totalEtoiles)].map((_, index) => (
         <img
           key={index}
-          src={index < etoilesPleines ? "/icones/etoileactive.svg" : "/icones/etoileinactive.svg"}
+          src={
+            index < etoilesPleines
+              ? "/icones/etoileactive.svg"
+              : "/icones/etoileinactive.svg"
+          }
           alt={index < etoilesPleines ? "Étoile pleine" : "Étoile vide"}
           className="etoile"
         />

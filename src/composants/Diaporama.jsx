@@ -20,7 +20,11 @@ function Diaporama({ images }) {
 
   return (
     <div className="diaporama">
-      <img src={images[indexActuel]} alt="Logement" className="diaporama__image" />
+      <img
+        src={images[indexActuel]}
+        alt="Logement"
+        className="diaporama__image"
+      />
       {images.length > 1 && (
         <div className="diaporama__controles">
           <img

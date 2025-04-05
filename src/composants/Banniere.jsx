@@ -20,4 +20,3 @@ Banniere.propTypes = {
 };
 
 export default Banniere;
-
