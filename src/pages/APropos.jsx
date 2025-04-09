@@ -5,9 +5,7 @@ import Collapse from "../composants/Collapse";
 function Apropos() {
   return (
     <div>
-      <Banniere image="./banniere/apropos.jpg" />
-      {""}
-      {}
+      <Banniere image="./banniere/apropos.jpg" className="banniereapropos" />
       <Collapse
         titre="Fiabilité"
         contenu="Les annonces postées sur Kasa garantissent une fiabilité totale. Les photos sont conformes aux logements, et toutes les informations sont régulièrement vérifiées par nos équipes."
@@ -18,7 +16,7 @@ function Apropos() {
       />
       <Collapse
         titre="Service"
-        contenu="La qualité du service est au coeur de notre engagement chez Kasa. Nous veillons à ce que chaque interation, que ce soit avec nos hôtes ou nos locataires, soit empreinte de respect et de beinveillance"
+        contenu="La qualité du service est au coeur de notre engagement chez Kasa. Nous veillons à ce que chaque interaction, que ce soit avec nos hôtes ou nos locataires, soit empreinte de respect et de bienveillance."
       />
       <Collapse
         titre="Sécurité"

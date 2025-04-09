@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
+
 function Carte({ id, titre, image }) {
   return (
     <div className="carte">

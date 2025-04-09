@@ -5,6 +5,7 @@ function Collapse({ titre, contenu }) {
   const [ouvert, setOuvert] = useState(false);
 
   const basculeOuverture = () => {
+    console.log("Collapse clické");
     setOuvert(!ouvert);
   };
 
@@ -18,6 +19,7 @@ function Collapse({ titre, contenu }) {
           className={`fleche ${ouvert ? "ouvert" : ""}`}
         />
       </div>
+      {}
       <div className={`collapse__contenu ${ouvert ? "visible" : ""}`}>
         {contenu}
       </div>
@@ -27,7 +29,7 @@ function Collapse({ titre, contenu }) {
 
 Collapse.propTypes = {
   titre: PropTypes.string.isRequired,
-  contenu: PropTypes.string.isRequired,
+  contenu: PropTypes.node.isRequired,
 };
 
 export default Collapse;

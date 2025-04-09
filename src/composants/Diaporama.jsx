@@ -14,10 +14,6 @@ function Diaporama({ images }) {
     setIndexActuel(nouvelIndex);
   };
 
-  if (images.length === 1) {
-    return <img src={images[0]} alt="Logement" className="diaporama__unique" />;
-  }
-
   return (
     <div className="diaporama">
       <img

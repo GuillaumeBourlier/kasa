@@ -82,28 +82,10 @@ mark,
 audio,
 video {
   margin: 0;
-  padding: 0;
+  padding: auto;
   border: 0;
   font-size: 100%;
   vertical-align: baseline;
-}
-
-article,
-aside,
-details,
-figcaption,
-figure,
-pied-de-page,
-en-tete,
-hgroup,
-menu,
-nav,
-section {
-  display: block;
-}
-
-body {
-  line-height: 1;
 }
 
 menu,
@@ -140,7 +122,7 @@ body {
 
 .contenu {
   flex: 1;
-  max-width: 1240px;
+  max-width: $point-rupture-xxl;
   margin: 0 auto;
   padding: 0 10px;
 
@@ -156,11 +138,10 @@ body {
   justify-content: space-between;
   align-items: center;
   width: 100%;
-  max-width: $largeur-xl;
+  max-width: $largeur-xxl;
   margin: $espacement-l auto;
   margin-bottom: $espacement-l;
   height: 68px;
-  padding: 0 20px;
 
   @media (max-width: $point-rupture-xl) {
     padding: 0 $espacement-s;
@@ -232,12 +213,14 @@ body {
   margin-bottom: 43px;
   box-shadow: $ombre-boite-m;
 
-  &__image {
+  &__contenu {
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
     height: 100%;
-    object-fit: cover;
-    object-position: center;
-    opacity: 0.7;
+    background-color: $couleur-fond-inverse;
+    opacity: 0.6;
   }
 
   &__titre {
@@ -247,11 +230,22 @@ body {
     transform: translate(-50%, -50%);
     font-size: $taille-police-xxxl;
     color: $couleur-texte-inverse;
+    text-align: center;
     filter: drop-shadow(0 0 8px $couleur-texte);
 
+    @media (max-width: $largeur-xs) {
+      font-size: $taille-police-xl;
+    }
+
     @media (max-width: $point-rupture-m) {
-      left: 38%;
       font-size: $taille-police-l;
+    }
+  }
+
+  &.banniereapropos {
+    .banniere__contenu {
+      background-color: transparent;
+      opacity: 1;
     }
   }
 
@@ -264,40 +258,36 @@ body {
     border-radius: $rayon-bordure-m;
   }
 }
-
 /* --- Styles pour les cartes Carte.jsx --- */
 .carte {
   position: relative;
   border-radius: $rayon-bordure-m;
   overflow: hidden;
-  text-align: center;
-  transition: transform 0.3s;
-  display: flex;
-  flex-direction: column;
-  height: 100%;
 
   img {
     width: 100%;
     height: 340px;
     object-fit: cover;
+
+    @media (max-width: $point-rupture-m) {
+      height: 255px;
+    }
   }
 
   h2 {
     position: absolute;
-    bottom: 10px;
-    left: 10px;
+    bottom: 20px;
+    left: 20px;
     color: $couleur-secondaire;
-    font-size: $taille-police-m;
-    padding: 5px 10px;
-  }
+    max-width: 38%;
+    line-height: 1.4;
+    white-space: normal;
 
-  a {
-    text-decoration: none;
-    color: inherit;
-  }
-
-  &:hover {
-    transform: scale(1.05);
+    @media (max-width: $point-rupture-m) {
+      font-size: $taille-police-s;
+      left: 16px;
+      right: 16px;
+    }
   }
 }
 
@@ -308,8 +298,7 @@ body {
   background-color: $couleur-secondaire;
   gap: 30px;
   padding: 20px;
-  max-width: $largeur-xxl;
-  margin: 0 auto;
+  margin-bottom: 30px;
 
   @media (max-width: $point-rupture-l) {
     grid-template-columns: repeat(2, 1fr);
@@ -325,13 +314,11 @@ body {
   font-family: $police-principale;
   display: flex;
   flex-direction: column;
-  justify-content: center;
   align-items: center;
   background: $couleur-fond-inverse;
   width: 100%;
-  padding: 20px 0; /* Ajoutez un padding pour éviter que le contenu ne touche les bords */
-  box-sizing: border-box;
-  margin-top: auto; /* Assure que le pied de page est en bas */
+  height: auto;
+  padding: 20px 0;
 
   &__logo {
     display: flex;
@@ -340,8 +327,20 @@ body {
   }
 
   &__copyright {
-    display: flex;
     color: $couleur-texte-inverse;
+    text-align: center;
+
+    .copyright-part1,
+    .copyright-part2 {
+      display: inline;
+    }
+
+    @media (max-width: 768px) {
+      .copyright-part1,
+      .copyright-part2 {
+        display: block;
+      }
+    }
   }
 }
 
@@ -383,35 +382,60 @@ body {
   &__lien {
     text-align: center;
     font-weight: $poids-police-normal;
+    text-decoration: none;
+
+    &:visited {
+      color: $couleur-texte;
+    }
+
+    &:hover {
+      color: $couleur-texte;
+    }
+
+    &:active {
+      color: $couleur-texte;
+    }
   }
 }
 
 /* --- Styles pour la Collpase --- */
 
 .collapse {
-  border-radius: 8px;
-  margin-bottom: 20px;
+  width: 80%;
+  margin: 0 auto;
+  border-radius: 5px;
   overflow: hidden;
-  background-color: $couleur-secondaire;
+  margin-bottom: 30px;
+  box-sizing: border-box;
+  z-index: 5;
+  width: 100%;
+  height: auto;
+  @media (max-width: 769px) {
+    margin-bottom: 15px;
+  }
 
   &__entete {
+    position: relative;
     display: flex;
     justify-content: space-between;
     align-items: center;
-    background-color: $couleur-primaire;
+    color: $couleur-pure-inversee;
+    background: $couleur-primaire;
     cursor: pointer;
-    min-height: 52px;
-    width: 100%;
-
+    padding: 10px;
+    font-size: 24px;
+    @media (max-width: 769px) {
+      font-size: 16px;
+    }
     h2 {
       margin: 10px;
       font-size: 1.2rem;
       color: $couleur-pure;
     }
-
     .fleche {
-      transition: transform 0.3s;
-      margin: 10px;
+      position: absolute;
+      right: 20px;
+      transition: all 0.35s;
     }
 
     .fleche.ouvert {
@@ -422,20 +446,33 @@ body {
   &__contenu {
     max-height: 0;
     overflow: hidden;
-    transition: max-height 0.3s ease-out, padding 0.3s ease-out;
-    padding: 0 1rem;
+    transition: max-height 0.3s ease-in-out, padding 0.3s ease-in-out;
+    padding: 0 20px;
+    background-color: $couleur-secondaire;
+    border-radius: 10px;
 
     &.visible {
-      max-height: 500px; // Ajustez selon le contenu
+      max-height: 1000px;
       padding: 1rem;
     }
   }
+  @media (max-width: 769px) {
+    width: 100%;
+  }
+}
+.collapse__contenu ul {
+  list-style: none;
+  padding: 0;
+}
+
+.collapse__contenu li {
+  margin-bottom: 5px;
 }
 
 /* --- Styles pour la page Logement Logement.jsx --- */
 
 .logement {
-  max-width: 1200px;
+  max-width: $point-rupture-xl;
   margin: 0 auto;
   padding: 20px;
 
@@ -453,77 +490,97 @@ body {
     align-items: flex-start;
     flex-wrap: wrap;
     gap: 10px;
+    width: 60%;
 
     h1 {
       font-size: $taille-police-xxl;
-      margin-bottom: $espacement-s;
+      margin-bottom: 0.5rem;
       color: $couleur-primaire;
+      font-weight: $poids-police-moyen;
     }
 
     p {
-      font-size: $taille-police-s;
-      color: $couleur-pure-inversee;
-      margin-bottom: $espacement-s;
+      font-size: $taille-police-m;
+      color: $couleur-texte;
+      margin-bottom: 1rem;
     }
+
+    @media (max-width: 769px) {
+      width: 100%;
+    }
+  }
+
+  &__tags {
+    display: flex;
+    flex-wrap: wrap;
+    margin-bottom: 1.5rem;
+    gap: 10px;
 
     .tag {
       background-color: $couleur-primaire;
-      border-radius: 25px;
-      padding: 6px 16px;
-      font-size: 14px;
-      font-weight: 600;
       color: $couleur-pure;
-      margin-top: 10px;
-      margin-right: 10px;
-      display: inline-block;
+      font-size: $taille-police-xs;
+      padding: 0.25rem 1.5rem;
+      border-radius: 90px;
+      margin-right: 0.5rem;
+      margin-bottom: 0.5rem;
 
-      @media (max-width: 769px) {
+      @media (max-width: 767px) {
         font-size: $taille-police-xs;
+        padding: 0.2rem 1rem;
       }
     }
   }
 
   &__hote {
     display: flex;
-    flex-direction: row;
-    justify-content: right;
-    align-items: center;
-    gap: 20px;
+    flex-direction: column;
+    align-items: flex-end;
+    width: 40%;
+    gap: 1.5rem;
+    margin-bottom: 1.5rem;
 
     @media (max-width: 769px) {
       flex-direction: row-reverse;
       justify-content: space-between;
-      gap: 15px;
-      margin-top: 15px;
+      width: 100%;
+      margin-top: -1rem;
     }
 
     .hote__info {
       display: flex;
-      flex-direction: column;
-      align-items: flex-start;
+      flex-direction: row;
+      align-items: center;
       gap: 10px;
 
-      @media (max-width: 769px) {
-        font-size: $taille-police-xs;
-      }
-
-      p {
-        font-size: $taille-police-m;
-        font-weight: $poids-police-moyen;
-        color: $couleur-primaire;
-      }
-
       img {
-        width: 64px;
-        height: 64px;
+        width: 4rem;
+        height: 4rem;
         border-radius: 50%;
+        object-fit: cover;
+
         @media (max-width: 769px) {
-          width: 40px;
-          height: 40px;
+          width: 2.5rem;
+          height: 2.5rem;
         }
       }
-      @media (max-width: 769px) {
-        gap: 10px;
+
+      .hote__info-text {
+        display: flex;
+        flex-direction: column;
+        align-items: flex-end;
+        text-align: right;
+
+        p {
+          font-size: $taille-police-m;
+          font-weight: $poids-police-moyen;
+          color: $couleur-primaire;
+          margin: 0;
+
+          @media (max-width: 769px) {
+            font-size: $taille-police-xs;
+          }
+        }
       }
     }
 
@@ -531,7 +588,7 @@ body {
       display: flex;
       align-items: center;
       gap: 5px;
-      margin-top: 10px;
+
       @media (max-width: 769px) {
         flex-direction: row;
       }
@@ -559,56 +616,12 @@ body {
     }
   }
 }
+
 .equipements__liste {
   padding-left: 0;
-  list-style-type: none;
-  color: $couleur-texte;
-
-  li {
-    margin-bottom: 5px;
-    font-size: $taille-police-m;
-    color: $couleur-texte;
-  }
-}
-/* --- Styles pour le Diaporama --- */
-.diaporama {
-  position: relative;
-  width: 100%;
-  height: 400px;
-  overflow: hidden;
-
-  &__image {
-    width: 100%;
-    height: 100%;
-    object-fit: cover;
-  }
-
-  &__controles {
-    position: absolute;
-    top: 50%;
-    width: 100%;
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    transform: translateY(-50%);
-
-    .diaporama__fleche {
-      cursor: pointer;
-      width: 30px; /* Ajustez la taille selon vos besoins */
-      height: 30px;
-    }
-  }
-
-  &__compteur {
-    position: absolute;
-    bottom: -150px;
-    left: 50%;
-    transform: translateX(-50%);
-    color: white;
-    font-size: 1.2rem;
-    font-weight: bold;
-    padding: 5px 10px;
-    border-radius: 5px;
+  color: $couleur-texte li {
+    margin-bottom: 0.5rem;
+    font-size: $taille-police-s;
   }
 }
 
@@ -623,5 +636,48 @@ body {
     @media (max-width: 769px) {
       width: 24px;
     }
+  }
+}
+/* --- Styles pour le Diaporama --- */
+.diaporama {
+  position: relative;
+  width: 100%;
+  height: 415px;
+  overflow: hidden;
+
+  &__image {
+    width: 100%;
+    height: 100%;
+    border-radius: $rayon-bordure-m;
+    object-fit: cover;
+  }
+
+  &__controles {
+    position: absolute;
+    top: 50%;
+    width: 100%;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    transform: translateY(-50%);
+
+    .diaporama__fleche {
+      cursor: pointer;
+      width: 76px;
+      height: 86px;
+      margin: 0 20px;
+    }
+  }
+
+  &__compteur {
+    position: absolute;
+    bottom: -150px;
+    left: 50%;
+    transform: translateX(-50%);
+    color: white;
+    font-size: 1.2rem;
+    font-weight: bold;
+    padding: 5px 10px;
+    border-radius: 5px;
   }
 }

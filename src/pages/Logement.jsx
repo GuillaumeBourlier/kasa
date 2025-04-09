@@ -22,7 +22,7 @@ function Logement() {
           <h1>{logement.title}</h1>
           <p>{logement.location}</p>
           <div className="logement__tags">
-            {logement.tags.map((tag, index) => (
+            {logement.tags?.map((tag, index) => (
               <span key={index} className="tag">
                 {tag}
               </span>
@@ -31,8 +31,17 @@ function Logement() {
         </div>
         <div className="logement__hote">
           <div className="hote__info">
-            <p>{logement.host.name}</p>
-            <img src={logement.host.picture} alt={logement.host.name} />
+            <div className="hote__info-text">
+              {logement.host?.name?.split(" ").map((part, index) => (
+                <p key={index}>{part}</p>
+              ))}
+            </div>
+            <img
+              src={logement.host?.picture}
+              alt={logement.host?.name}
+              role="img"
+              aria-label={`Portrait de ${logement.host?.name}`}
+            />
           </div>
           <div className="logement__note">
             <Etoiles rating={logement.rating} />
@@ -44,7 +53,7 @@ function Logement() {
             titre="Équipements"
             contenu={
               <ul className="equipements__liste">
-                {logement.equipments.map((equipement, index) => (
+                {logement.equipments?.map((equipement, index) => (
                   <li key={index}>{equipement}</li>
                 ))}
               </ul>

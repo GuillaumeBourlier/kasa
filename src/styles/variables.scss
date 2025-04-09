@@ -12,38 +12,8 @@ $couleur-fond-inverse: #000000;
 $couleur-texte: #000000;
 $couleur-texte-inverse: #ffffff;
 
-$couleur-selection: #2a6cd7;
-$couleur-danger: #d93936;
-$couleur-succes: #3ba55c;
-
 $barre-defilement: #f6f6f6;
 $barre-defilement-pouce: #ff6060;
-
-@mixin degrade {
-  background: rgb(255, 255, 255);
-  background: -moz-linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(10, 10, 10, 0) 42%,
-    rgba(4, 4, 4, 0.4086426807050946) 100%,
-    rgba(0, 0, 0, 1) 100%
-  );
-  background: -webkit-linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(10, 10, 10, 0) 42%,
-    rgba(4, 4, 4, 0.4086426807050946) 100%,
-    rgba(0, 0, 0, 1) 100%
-  );
-  background: linear-gradient(
-    90deg,
-    rgba(255, 255, 255, 0) 0%,
-    rgba(10, 10, 10, 0) 42%,
-    rgba(4, 4, 4, 0.4086426807050946) 100%,
-    rgba(0, 0, 0, 1) 100%
-  );
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr="#ffffff",endColorstr="#000000",GradientType=1);
-}
 
 $poids-police-noir: 900;
 $poids-police-gras: 700;
@@ -101,5 +71,3 @@ $rayon-bordure-s: 2px;
 
 $duree-transition: 0.3s;
 $duree-transition-rapide: 0.1s;
-
-$taille-barre-defilement: 15px;
