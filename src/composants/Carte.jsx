@@ -7,6 +7,7 @@ function Carte({ id, titre, image }) {
     <div className="carte">
       <Link to={`/logement/${id}`}>
         <img src={image} alt={titre} />
+        <div className="degrade"></div>
         <h2>{titre}</h2>
       </Link>
     </div>

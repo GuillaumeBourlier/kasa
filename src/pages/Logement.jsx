@@ -1,16 +1,40 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import logementsData from "../assets/logement.json";
 import Diaporama from "../composants/Diaporama";
 import Collapse from "../composants/Collapse";
 import Etoiles from "../composants/Etoiles";
 import Erreur from "../pages/Erreur";
+import logementsData from "../assets/logement.json";
 
 function Logement() {
   const { id } = useParams();
-  const logement = logementsData.find((logement) => logement.id === id);
+  const [logement, setLogement] = useState(null);
+  const [chargement, setChargement] = useState(true);
+  const [erreur, setErreur] = useState(false);
 
-  if (!logement) {
+  useEffect(() => {
+    const timer = setTimeout(() => {
+      const logementTrouvé = logementsData.find((item) => item.id === id);
+      if (!logementTrouvé) {
+        setErreur(true);
+      }
+      setLogement(logementTrouvé);
+      setChargement(false);
+    }, 1000);
+
+    return () => clearTimeout(timer);
+  }, [id]);
+
+  if (chargement) {
+    return (
+      <div className="zone-chargement">
+        <div className="chargement" />
+        <p>Chargement du logement...</p>
+      </div>
+    );
+  }
+
+  if (erreur || !logement) {
     return <Erreur />;
   }
 

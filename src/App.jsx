@@ -4,14 +4,14 @@ import Accueil from "./pages/Accueil";
 import Apropos from "./pages/APropos";
 import Erreur from "./pages/Erreur";
 import Logement from "./pages/Logement";
-import Entête from "./composants/Entete";
+import Entete from "./composants/Entete";
 import Pieddepage from "./composants/Pieddepage";
 
 function App() {
   return (
     <>
       <div className="disposition">
-        <Entête />
+        <Entete />
         <main className="contenu">
           <Routes>
             <Route path="/" element={<Accueil />} />

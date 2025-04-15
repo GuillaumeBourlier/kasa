@@ -1,112 +1,5 @@
 @use "./variables.scss" as *;
 
-/* --- Réinitialisation CSS --- */
-html,
-body,
-div,
-span,
-applet,
-object,
-iframe,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6,
-p,
-blockquote,
-pre,
-a,
-abbr,
-acronym,
-address,
-big,
-cite,
-code,
-del,
-dfn,
-em,
-img,
-ins,
-kbd,
-q,
-s,
-samp,
-small,
-strike,
-strong,
-sub,
-sup,
-tt,
-var,
-b,
-u,
-i,
-center,
-dl,
-dt,
-dd,
-ol,
-ul,
-li,
-fieldset,
-form,
-label,
-legend,
-table,
-caption,
-tbody,
-tfoot,
-thead,
-tr,
-th,
-td,
-article,
-aside,
-canvas,
-details,
-embed,
-figure,
-figcaption,
-pied-de-page,
-en-tete,
-hgroup,
-menu,
-nav,
-output,
-ruby,
-section,
-time,
-mark,
-audio,
-video {
-  margin: 0;
-  padding: auto;
-  border: 0;
-  font-size: 100%;
-  vertical-align: baseline;
-}
-
-menu,
-ol,
-ul {
-  list-style: none;
-}
-
-blockquote,
-q {
-  quotes: none;
-}
-
-blockquote:before,
-blockquote:after,
-q:before,
-q:after {
-  content: "";
-  content: none;
-}
-
 body {
   background-color: $couleur-fond;
   font-family: $police-principale;
@@ -226,19 +119,18 @@ body {
   &__titre {
     position: absolute;
     left: 50%;
-    top: 50%;
+    top: 40%;
     transform: translate(-50%, -50%);
     font-size: $taille-police-xxxl;
     color: $couleur-texte-inverse;
     text-align: center;
     filter: drop-shadow(0 0 8px $couleur-texte);
 
-    @media (max-width: $largeur-xs) {
-      font-size: $taille-police-xl;
-    }
-
     @media (max-width: $point-rupture-m) {
-      font-size: $taille-police-l;
+      font-size: $taille-police-xl;
+      left: 20px;
+      transform: translateY(-50%);
+      text-align: left;
     }
   }
 
@@ -263,6 +155,12 @@ body {
   position: relative;
   border-radius: $rayon-bordure-m;
   overflow: hidden;
+  transition: transform $duree-transition, box-shadow $duree-transition;
+
+  &:hover {
+    transform: scale(1.05);
+    box-shadow: $ombre-boite-l;
+  }
 
   img {
     width: 100%;
@@ -282,6 +180,7 @@ body {
     max-width: 38%;
     line-height: 1.4;
     white-space: normal;
+    z-index: 2;
 
     @media (max-width: $point-rupture-m) {
       font-size: $taille-police-s;
@@ -289,6 +188,22 @@ body {
       right: 16px;
     }
   }
+}
+
+.degrade {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: linear-gradient(
+    180deg,
+    rgba(255, 255, 255, 0) 0%,
+    rgba(0, 0, 0, 0) 42%,
+    rgba(4, 4, 4, 0.205) 99.99%,
+    rgba(0, 0, 0, 0.5) 100%
+  );
+  z-index: 1;
 }
 
 .cartes {
@@ -674,10 +589,36 @@ body {
     bottom: -150px;
     left: 50%;
     transform: translateX(-50%);
-    color: white;
-    font-size: 1.2rem;
+    color: $couleur-pure;
+    font-size: $taille-police-m;
     font-weight: bold;
     padding: 5px 10px;
     border-radius: 5px;
+  }
+}
+.zone-chargement {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 50vh;
+  text-align: center;
+  color: $couleur-primaire;
+  font-size: $taille-police-m;
+}
+
+.chargement {
+  border: 4px solid $couleur-secondaire;
+  border-top: 4px solid $couleur-primaire;
+  border-radius: 50%;
+  width: 40px;
+  height: 40px;
+  animation: rotation 1s linear infinite;
+  margin-bottom: 10px;
+}
+
+@keyframes rotation {
+  to {
+    transform: rotate(360deg);
   }
 }
