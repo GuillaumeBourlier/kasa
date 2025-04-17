@@ -1,6 +1,6 @@
 import { NavLink } from "react-router-dom";
 
-function EnTete() {
+function Entete() {
   return (
     <header className="en-tete">
       <NavLink to="/" className="logo">
@@ -29,4 +29,4 @@ function EnTete() {
   );
 }
 
-export default EnTete;
+export default Entete;

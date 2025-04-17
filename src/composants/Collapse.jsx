@@ -5,7 +5,6 @@ function Collapse({ titre, contenu }) {
   const [ouvert, setOuvert] = useState(false);
 
   const basculeOuverture = () => {
-    console.log("Collapse clické");
     setOuvert(!ouvert);
   };
 
