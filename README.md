@@ -6,4 +6,4 @@ Installation
 Clone the Repository
     git clone https://github.com/GuillaumeBourlier/kasa.git
 Start the project
-    npm start
+    npm run dev
