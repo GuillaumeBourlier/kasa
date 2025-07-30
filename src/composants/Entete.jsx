@@ -1,5 +1,5 @@
 import { NavLink } from "react-router-dom";
-import logoRouge from "/logos/logorouge.svg";
+import logoRouge from "../../public/logos/logorouge.svg";
 
 function Entete() {
   return (
