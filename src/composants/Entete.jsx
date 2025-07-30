@@ -1,14 +1,11 @@
 import { NavLink } from "react-router-dom";
+import logoRouge from "/logos/logorouge.svg";
 
 function Entete() {
   return (
     <header className="en-tete">
       <NavLink to="/" className="logo">
-        <img
-          className="logo__image"
-          src="/logos/logorouge.svg"
-          alt="Logo du site Kasa"
-        />
+        <img className="logo__image" src={logoRouge} alt="Logo du site Kasa" />
       </NavLink>
 
       <nav className="navigation">
