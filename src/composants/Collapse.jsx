@@ -1,5 +1,6 @@
 import { useState } from "react";
 import PropTypes from "prop-types";
+import flecheHaut from "@/assets/icones/flechehaut.svg";
 
 function Collapse({ titre, contenu }) {
   const [ouvert, setOuvert] = useState(false);
@@ -13,12 +14,11 @@ function Collapse({ titre, contenu }) {
       <div className="collapse__entete" onClick={basculeOuverture}>
         <h2>{titre}</h2>
         <img
-          src="/icones/flechehaut.svg"
+          src={flecheHaut}
           alt="Flèche"
           className={`fleche ${ouvert ? "ouvert" : ""}`}
         />
       </div>
-      {}
       <div className={`collapse__contenu ${ouvert ? "visible" : ""}`}>
         {contenu}
       </div>

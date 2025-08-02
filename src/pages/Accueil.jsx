@@ -1,13 +1,14 @@
 import React from "react";
-import Banniere from "../composants/Banniere";
-import Carte from "../composants/Carte";
-import logementsData from "../assets/logement.json";
+import Banniere from "@/composants/Banniere";
+import Carte from "@/composants/Carte";
+import logementsData from "@/assets/logement.json";
+import imageAccueil from "@/assets/banniere/banniere.jpg";
 
 function Accueil() {
   return (
     <div className="accueil">
       <Banniere
-        image="./banniere/banniere.jpg"
+        image={imageAccueil}
         titre="Chez vous, partout et ailleurs"
       />
       <div className="cartes">

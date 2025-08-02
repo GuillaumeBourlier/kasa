@@ -1,5 +1,7 @@
 import React, { useState } from "react";
 import PropTypes from "prop-types";
+import flecheGauche from "@/assets/icones/flechegauche.svg";
+import flecheDroite from "@/assets/icones/flechedroite.svg";
 
 function Diaporama({ images }) {
   const [indexActuel, setIndexActuel] = useState(0);
@@ -24,7 +26,7 @@ function Diaporama({ images }) {
       {images.length > 1 && (
         <div className="diaporama__controles">
           <img
-            src="/icones/flechegauche.svg"
+            src={flecheGauche}
             alt="Flèche gauche"
             className="diaporama__fleche"
             onClick={allerAuPrecedent}
@@ -33,7 +35,7 @@ function Diaporama({ images }) {
             {indexActuel + 1} / {images.length}
           </span>
           <img
-            src="/icones/flechedroite.svg"
+            src={flecheDroite}
             alt="Flèche droite"
             className="diaporama__fleche"
             onClick={allerAuSuivant}

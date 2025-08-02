@@ -1,11 +1,12 @@
 import React from "react";
-import Banniere from "../composants/Banniere";
-import Collapse from "../composants/Collapse";
+import Banniere from "@/composants/Banniere";
+import Collapse from "@/composants/Collapse";
+import imageApropos from "@/assets/banniere/apropos.jpg";
 
 function Apropos() {
   return (
     <div>
-      <Banniere image="./banniere/apropos.jpg" className="banniereapropos" />
+      <Banniere image={imageApropos} className="banniereapropos" />
       <Collapse
         titre="Fiabilité"
         contenu="Les annonces postées sur Kasa garantissent une fiabilité totale. Les photos sont conformes aux logements, et toutes les informations sont régulièrement vérifiées par nos équipes."

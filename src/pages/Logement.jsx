@@ -1,10 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { useParams } from "react-router-dom";
-import Diaporama from "../composants/Diaporama";
-import Collapse from "../composants/Collapse";
-import Etoiles from "../composants/Etoiles";
-import Erreur from "../pages/Erreur";
-import logementsData from "../assets/logement.json";
+import Diaporama from "@/composants/Diaporama";
+import Collapse from "@/composants/Collapse";
+import Etoiles from "@/composants/Etoiles";
+import Erreur from "@/pages/Erreur";
+import logementsData from "@/assets/logement.json";
 
 function Logement() {
   const { id } = useParams();
