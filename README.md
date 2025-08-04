@@ -6,8 +6,8 @@
 
 Kasa est une application web de location immobilière développée avec React. Ce projet a été réalisé dans le cadre de la formation de développeur web d'OpenClassrooms. L'application permet aux utilisateurs de parcourir des annonces de location et de consulter les détails de chaque bien.
 
-<!-- Pensez à ajouter une capture d'écran de votre projet et à la nommer "screenshot.png" à la racine -->
-![Capture d'écran de Kasa](./screenshot.png)
+
+![Preview](https://guillaumebourlier.github.io/kasa/)
 
 ##  À propos du projet
 
